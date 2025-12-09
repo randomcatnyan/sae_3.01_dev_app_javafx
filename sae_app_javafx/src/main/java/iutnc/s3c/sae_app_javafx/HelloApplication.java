@@ -43,6 +43,7 @@ public class HelloApplication extends Application {
         //container principal
         BorderPane root = new BorderPane();
         root.setTop(titledPane);
+        root.setCenter(new Button("hi"));//renmplacer le bouton par un conteneur pour les taches
         root.setBackground(
                 new Background(
                         new BackgroundFill(
