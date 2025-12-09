@@ -2,7 +2,7 @@
 
 Nathan VIRY, ONIMUS Timothée
 
-[https://github.com/randomcatnyan/sae_3.01_dev_app_javafx](Repo)
+[Repo](https://github.com/randomcatnyan/sae_3.01_dev_app_javafx)
 
 ###### Doc
 *Je drop de la doc javafx ici pour pouvoir y accéder vite fait*
