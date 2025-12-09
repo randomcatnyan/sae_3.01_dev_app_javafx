@@ -1,12 +1,11 @@
 package iutnc.s3c.sae_app_javafx;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.scene.control.*;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -17,28 +16,33 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        Label labelVisualisation = new Label("Visualisation :");
-
         ComboBox visualisationChoix = new ComboBox<String>();
-        visualisationChoix.getItems().addAll("bureau","liste");
+        visualisationChoix.getItems().addAll("Bureau","Liste");
         visualisationChoix.getSelectionModel().selectFirst();
 
-        Button buttonGantt = new Button("Visualiser Gantt");
+        TitledPane titledPane = new TitledPane(
+                "",
+                new HBox(
+                        8,
+                        visualisationChoix,
+                        new Button("Visualiser Gantt")
+                )
+        );
 
-        GridPane gridPane = new GridPane();
-        gridPane.setHgap(10);
-        gridPane.setVgap(10);
-        gridPane.setPadding(new Insets(15,15,0,15));
-        gridPane.add(labelVisualisation, 0, 0);
-        gridPane.add(visualisationChoix, 1, 0);
-        gridPane.add(buttonGantt, 2, 0);
+//        GridPane gridPane = new GridPane();
+//        gridPane.setHgap(10);
+//        gridPane.setVgap(10);
+//        gridPane.setPadding(new Insets(15,15,0,15));
+//        gridPane.add(labelVisualisation, 0, 0);
+//        gridPane.add(visualisationChoix, 1, 0);
+//        gridPane.add(buttonGantt, 2, 0);
 
 //        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
 //        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
 
         //container principal
         BorderPane root = new BorderPane();
-        root.setLeft(gridPane);
+        root.setTop(titledPane);
         root.setBackground(
                 new Background(
                         new BackgroundFill(
