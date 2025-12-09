@@ -7,6 +7,6 @@ Nathan VIRY, ONIMUS Timothée
 ###### Doc
 *Je drop de la doc javafx ici pour pouvoir y accéder vite fait*
 
-- [Site communautaire](https://openjfx.io/
+- [Site communautaire](https://openjfx.io/)
 - [Bon tuto](https://fxdocs.github.io/docs/html5/)
 - [Doc de l'API'](https://openjfx.io/javadoc/25/)
