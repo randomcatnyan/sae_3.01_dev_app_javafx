@@ -16,34 +16,34 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
+        //tasks container
+        Pane taskContainer = new Pane();
+        ControlTaskContainer controlTaskContainer = new ControlTaskContainer(taskContainer);
+
+        //board at the top of the screen
         ComboBox visualisationChoix = new ComboBox<String>();
         visualisationChoix.getItems().addAll("Bureau","Liste");
         visualisationChoix.getSelectionModel().selectFirst();
+
+        Button newTask = new Button("+ tâche");
+        newTask.setOnMouseClicked(controlTaskContainer);
+
+        Button ganttVisualisation = new Button("Visualiser Gantt");
 
         TitledPane titledPane = new TitledPane(
                 "",
                 new HBox(
                         8,
                         visualisationChoix,
-                        new Button("Visualiser Gantt")
+                        newTask,
+                        ganttVisualisation
                 )
         );
-
-//        GridPane gridPane = new GridPane();
-//        gridPane.setHgap(10);
-//        gridPane.setVgap(10);
-//        gridPane.setPadding(new Insets(15,15,0,15));
-//        gridPane.add(labelVisualisation, 0, 0);
-//        gridPane.add(visualisationChoix, 1, 0);
-//        gridPane.add(buttonGantt, 2, 0);
-
-//        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-//        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
 
         //container principal
         BorderPane root = new BorderPane();
         root.setTop(titledPane);
-        root.setCenter(new Button("hi"));//renmplacer le bouton par un conteneur pour les taches
+        root.setCenter(taskContainer);//renmplacer le bouton par un conteneur pour les taches
         root.setBackground(
                 new Background(
                         new BackgroundFill(
