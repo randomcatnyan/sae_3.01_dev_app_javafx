@@ -7,7 +7,12 @@ import javafx.scene.shape.Rectangle;
 public class Task extends StackPane {
 
     Task() {
-        super(new Rectangle(200, 100, Color.BLACK));
+        super(new Rectangle(200, 100, new Color(
+                Math.random(),
+                Math.random(),
+                Math.random(),
+                1
+        )));
     }
 
 }
