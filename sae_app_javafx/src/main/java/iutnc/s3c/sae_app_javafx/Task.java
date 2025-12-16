@@ -5,7 +5,7 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-public class Task extends HBox {
+public class Task extends VBox {
 
     Task() {
         super(new Rectangle(200, 100));
