@@ -4,6 +4,8 @@ import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
+import static javafx.scene.input.MouseEvent.MOUSE_PRESSED;
+
 public class ControlTask implements EventHandler<MouseEvent> {
 
     Task task;
@@ -13,8 +15,12 @@ public class ControlTask implements EventHandler<MouseEvent> {
     }
 
     public void handle(MouseEvent e){
-        //MouseDragEvent
-        this.task.relocate(this.task.getLayoutX() + e.getX(), this.task.getLayoutY() + e.getY());
+        //MouseDragEvent MOUSE_DRAGGED
+        System.out.println(e.getEventType());
+        String eventName = e.getEventType().getName();
+        if (eventName == "MOUSE_DRAGGED") {
+            this.task.relocate(this.task.getLayoutX() + e.getX(), this.task.getLayoutY() + e.getY());
+        }
 
     }
 
