@@ -8,7 +8,7 @@ public class ControlTaskContainer implements EventHandler<MouseEvent> {
 
     Pane container;
 
-    ControlTaskContainer(Pane container){
+    ControlTaskContainer(Pane container) {
         this.container = container;
     }
 

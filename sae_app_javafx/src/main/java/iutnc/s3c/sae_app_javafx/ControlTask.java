@@ -12,11 +12,11 @@ public class ControlTask implements EventHandler<MouseEvent> {
 
     Task task;
 
-    ControlTask(Task task){
+    ControlTask(Task task) {
         this.task = task;
     }
 
-    public void handle(MouseEvent e){
+    public void handle(MouseEvent e) {
         //check MouseDragEvent for later
         String eventName = e.getEventType().getName();
         switch (eventName) {
@@ -25,7 +25,7 @@ public class ControlTask implements EventHandler<MouseEvent> {
                 break;
             case "MOUSE_ENTERED":
                 HBox task_menu = new HBox(8, new Button("hi"));
-                this.task.getChildren().add(1,task_menu);
+                this.task.getChildren().add(1, task_menu);
                 break;
             case "MOUSE_EXITED":
                 this.task.getChildren().remove(1);

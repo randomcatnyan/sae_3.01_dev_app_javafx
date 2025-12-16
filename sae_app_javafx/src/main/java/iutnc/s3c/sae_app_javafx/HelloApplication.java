@@ -22,7 +22,7 @@ public class HelloApplication extends Application {
 
         //board at the top of the screen
         ComboBox visualisationChoix = new ComboBox<String>();
-        visualisationChoix.getItems().addAll("Bureau","Liste");
+        visualisationChoix.getItems().addAll("Bureau", "Liste");
         visualisationChoix.getSelectionModel().selectFirst();
 
         Button newTask = new Button("+ tâche");
@@ -30,29 +30,13 @@ public class HelloApplication extends Application {
 
         Button ganttVisualisation = new Button("Visualiser Gantt");
 
-        TitledPane titledPane = new TitledPane(
-                "",
-                new HBox(
-                        8,
-                        visualisationChoix,
-                        newTask,
-                        ganttVisualisation
-                )
-        );
+        TitledPane titledPane = new TitledPane("", new HBox(8, visualisationChoix, newTask, ganttVisualisation));
 
         //container principal
         BorderPane root = new BorderPane();
         root.setTop(titledPane);
         root.setCenter(taskContainer);//renmplacer le bouton par un conteneur pour les taches
-        root.setBackground(
-                new Background(
-                        new BackgroundFill(
-                                Color.SEASHELL,
-                                new CornerRadii(0),
-                                new Insets(0)
-                        )
-                )
-        );
+        root.setBackground(new Background(new BackgroundFill(Color.SEASHELL, new CornerRadii(0), new Insets(0))));
 
         Scene scene = new Scene(root, 620, 400);
 
