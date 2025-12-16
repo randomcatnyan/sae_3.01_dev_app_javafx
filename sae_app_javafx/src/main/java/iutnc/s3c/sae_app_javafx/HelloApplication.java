@@ -38,7 +38,7 @@ public class HelloApplication extends Application {
         root.setCenter(taskContainer);//renmplacer le bouton par un conteneur pour les taches
         root.setBackground(new Background(new BackgroundFill(Color.SEASHELL, new CornerRadii(0), new Insets(0))));
 
-        Scene scene = new Scene(root, 620, 400);
+        Scene scene = new Scene(root, 800, 600);
 
         stage.setTitle("The app");
         stage.setScene(scene);
