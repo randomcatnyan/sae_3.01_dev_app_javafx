@@ -13,7 +13,9 @@ public class ControlTaskContainer implements EventHandler<MouseEvent> {
     }
 
     public void handle(MouseEvent mouseEvent) {
-        this.container.getChildren().addAll(new Task());
+        Task t = new Task();
+        this.container.getChildren().addAll(t);
+        t.setOnMouseDragged(new ControlTask(t));
     }
 
 }
