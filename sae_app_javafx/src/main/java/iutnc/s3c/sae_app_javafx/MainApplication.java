@@ -1,9 +1,7 @@
 package iutnc.s3c.sae_app_javafx;
 
 import javafx.application.Application;
-import javafx.collections.FXCollections;
 import javafx.scene.control.*;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.layout.*;
@@ -12,7 +10,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class MainApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
