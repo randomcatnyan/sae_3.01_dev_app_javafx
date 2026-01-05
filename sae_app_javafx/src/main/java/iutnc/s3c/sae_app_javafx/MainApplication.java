@@ -32,10 +32,9 @@ public class MainApplication extends Application {
 
         //container principal
         BorderPane root = new BorderPane();
-        root.setTop(titledPane);
         root.setCenter(taskContainer);//renmplacer le bouton par un conteneur pour les taches
         root.setBackground(new Background(new BackgroundFill(Color.SEASHELL, new CornerRadii(0), new Insets(0))));
-
+        root.setTop(titledPane);
         Scene scene = new Scene(root, 800, 600);
 
         stage.setTitle("The app");
