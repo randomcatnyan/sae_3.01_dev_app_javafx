@@ -1,5 +1,6 @@
 package iutnc.s3c.sae_app_javafx;
 
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -13,9 +14,11 @@ import static javafx.scene.input.MouseEvent.MOUSE_PRESSED;
 public class ControlTask implements EventHandler<MouseEvent> {
 
     Task task;
+    Pane container;
 
-    ControlTask(Task task) {
+    ControlTask(Task task, Pane container) {
         this.task = task;
+        this.container = container;
     }
 
     public void handle(MouseEvent e) {
@@ -26,15 +29,17 @@ public class ControlTask implements EventHandler<MouseEvent> {
                 this.task.relocate(this.task.getLayoutX() + e.getX() - (this.task.getWidth() / 2), this.task.getLayoutY() + e.getY() - (this.task.getHeight() / 2));
                 break;
             case "MOUSE_ENTERED":
-                HBox task_menu = new HBox(
-                        8,
-                        new Button("Modifier"),
-                        new Button("Sélectionner"),
-                        new Button("Archiver")
-                );
+                Button buttonArchive = new Button("Archiver");
+                HBox task_menu = new HBox(8, new Button("Modifier"), new Button("Sélectionner"), buttonArchive);
                 StackPane taskDesc = (StackPane) this.task.getChildren().getFirst();
                 taskDesc.getChildren().add(task_menu);
                 this.task.getChildren().set(0, taskDesc);
+                buttonArchive.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                        container.getChildren().remove(task);
+                    }
+                });
                 break;
             case "MOUSE_EXITED":
                 StackPane task_desc = (StackPane) this.task.getChildren().getFirst();
