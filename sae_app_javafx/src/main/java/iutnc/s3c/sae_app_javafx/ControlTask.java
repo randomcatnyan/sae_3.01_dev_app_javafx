@@ -2,12 +2,14 @@ package iutnc.s3c.sae_app_javafx;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 
 import static javafx.scene.input.MouseEvent.MOUSE_PRESSED;
 
@@ -37,7 +39,30 @@ public class ControlTask implements EventHandler<MouseEvent> {
                 buttonArchive.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent event) {
-                        container.getChildren().remove(task);
+                        BorderPane BPane = new BorderPane();
+                        Text t = new Text("Etes-vous sûr ?");
+                        Button bA = new Button("Annuler");
+                        Button bC = new Button("Confirmer");
+                        BPane.setTop(t);
+                        BPane.setLeft(bA);
+                        BPane.setRight(bC);
+                        BPane.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(0), new Insets(0))));
+                        BPane.setPadding(new Insets(10));
+                        BPane.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
+                        bA.setOnAction(new EventHandler<ActionEvent>() {
+                            @Override
+                            public void handle(ActionEvent event) {
+                                container.getChildren().remove(BPane);
+                            }
+                        });
+                        bC.setOnAction(new EventHandler<ActionEvent>() {
+                            @Override
+                            public void handle(ActionEvent event) {
+                                container.getChildren().remove(BPane);
+                                container.getChildren().remove(task);
+                            }
+                        });
+                        container.getChildren().add(BPane);
                     }
                 });
                 break;
