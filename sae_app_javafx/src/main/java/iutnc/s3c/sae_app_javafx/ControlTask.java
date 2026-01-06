@@ -31,11 +31,15 @@ public class ControlTask implements EventHandler<MouseEvent> {
                 this.task.relocate(this.task.getLayoutX() + e.getX() - (this.task.getWidth() / 2), this.task.getLayoutY() + e.getY() - (this.task.getHeight() / 2));
                 break;
             case "MOUSE_ENTERED":
+                //build task description (the 3 btns when hoverring)
                 Button buttonArchive = new Button("Archiver");
-                HBox task_menu = new HBox(8, new Button("Modifier"), new Button("Sélectionner"), buttonArchive);
+                Button buttonModif = new Button("Modifier");
+                Button buttonSelec = new Button("Sélectionner");
+                HBox task_menu = new HBox(8, buttonModif, buttonSelec, buttonArchive);
                 StackPane taskDesc = (StackPane) this.task.getChildren().getFirst();
                 taskDesc.getChildren().add(task_menu);
                 this.task.getChildren().set(0, taskDesc);
+                //add interactivity to the btns
                 buttonArchive.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent event) {
