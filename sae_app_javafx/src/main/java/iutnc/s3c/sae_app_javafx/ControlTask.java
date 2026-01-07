@@ -28,7 +28,9 @@ public class ControlTask implements EventHandler<MouseEvent> {
         String eventName = e.getEventType().getName();
         switch (eventName) {
             case "MOUSE_DRAGGED":
-                this.task.relocate(this.task.getLayoutX() + e.getX() - (this.task.getWidth() / 2), this.task.getLayoutY() + e.getY() - (this.task.getHeight() / 2));
+                double x = this.task.getLayoutX() + e.getX() - (this.task.getWidth() / 2);
+                double y = this.task.getLayoutY() + e.getY() - (this.task.getHeight() / 2);
+                this.task.relocate(x, y);
                 break;
             case "MOUSE_ENTERED":
                 //build task description (the 3 btns when hoverring)
@@ -71,7 +73,18 @@ public class ControlTask implements EventHandler<MouseEvent> {
                 });
                 break;
             case "MOUSE_RELEASED":
-                System.out.println("todo");
+                for (Node node : container.getChildren()) {
+                    boolean thisInsideNode = (
+                            node.getLayoutX() < this.task.getLayoutX() &&
+                            this.task.getLayoutX() < (node.getLayoutX() + node.getLayoutBounds().getWidth()) &&
+                            node.getLayoutY() < this.task.getLayoutY() &&
+                            this.task.getLayoutY() < (node.getLayoutY() + node.getLayoutBounds().getHeight())
+                    );
+                    if ( node instanceof Task && thisInsideNode ) {
+                        this.task.relocate(node.getLayoutX() + 10, node.getLayoutY() + 10);
+                        System.out.println("todo");
+                    }
+                }
                 break;
             case "MOUSE_EXITED":
                 StackPane task_desc = (StackPane) this.task.getChildren().getFirst();
