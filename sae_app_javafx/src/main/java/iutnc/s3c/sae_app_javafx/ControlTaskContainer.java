@@ -22,7 +22,7 @@ public class ControlTaskContainer implements EventHandler<MouseEvent> {
         h.setPadding(new Insets(10));
         h.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(0), new Insets(0))));
         h.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
-        TextField name = new TextField();
+        TextField name = new TextField("Nouvelle tâche");
         Button b = new Button("Créer tâche");
         h.getChildren().addAll(name, b);
         this.container.getChildren().add(h);
