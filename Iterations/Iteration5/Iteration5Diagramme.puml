@@ -1,0 +1,35 @@
+@startuml
+class iutnc.s3c.sae_app_javafx.MainApplication {
++ void start(Stage)
+}
+
+class iutnc.s3c.sae_app_javafx.ControlTask {
+~ Task task
+~ Pane container
++ void handle(MouseEvent)
+}
+
+
+class iutnc.s3c.sae_app_javafx.Task {
+- String description
+}
+
+class iutnc.s3c.sae_app_javafx.Person {
+}
+class iutnc.s3c.sae_app_javafx.Launcher {
++ {static} void main(String[])
+}
+
+class iutnc.s3c.sae_app_javafx.ControlTaskContainer {
+~ Pane container
++ void handle(MouseEvent)
+}
+
+
+
+
+javafx.application.Application <|-- iutnc.s3c.sae_app_javafx.MainApplication
+javafx.event.EventHandler <|.. iutnc.s3c.sae_app_javafx.ControlTask
+iutnc.s3c.sae_app_javafx.VBox <|-- iutnc.s3c.sae_app_javafx.Task
+javafx.event.EventHandler <|.. iutnc.s3c.sae_app_javafx.ControlTaskContainer
+@enduml
