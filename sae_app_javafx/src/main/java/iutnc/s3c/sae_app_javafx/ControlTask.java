@@ -104,6 +104,9 @@ public class ControlTask implements EventHandler<MouseEvent> {
                             this.task.getLayoutY() < (node.getLayoutY() + node.getLayoutBounds().getHeight())
                     );
                     if ( node instanceof Task && thisInsideNode ) {
+                        //StackPane childTaskList = (StackPane) ((Task)node).getChildren().getLast();
+                        //childTaskList.getChildren().add(this.task);
+                        //((Task)node).getChildren().set(((Task)node).getChildren().toArray().length, childTaskList);
                         this.task.relocate(node.getLayoutX() + 10, node.getLayoutY() + 10);
                         System.out.println("todo");
                     }
