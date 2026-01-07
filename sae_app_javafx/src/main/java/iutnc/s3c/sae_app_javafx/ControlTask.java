@@ -93,6 +93,9 @@ public class ControlTask implements EventHandler<MouseEvent> {
                     }
                 });
                 break;
+            case "MOUSE_RELEASED":
+                System.out.println("todo");
+                break;
             case "MOUSE_EXITED":
                 StackPane task_desc = (StackPane) this.task.getChildren().getFirst();
                 task_desc.getChildren().removeLast();
