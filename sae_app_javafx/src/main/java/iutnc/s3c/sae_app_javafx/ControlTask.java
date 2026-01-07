@@ -1,11 +1,13 @@
 package iutnc.s3c.sae_app_javafx;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -67,6 +69,27 @@ public class ControlTask implements EventHandler<MouseEvent> {
                             }
                         });
                         container.getChildren().add(BPane);
+                    }
+                });
+                buttonModif.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                        HBox h = new HBox();
+                        h.setPadding(new Insets(10));
+                        h.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(0), new Insets(0))));
+                        h.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
+                        TextField name = new TextField();
+                        Button b = new Button("Valider");
+                        h.getChildren().addAll(name, b);
+                        container.getChildren().add(h);
+                        b.setOnAction(new EventHandler<ActionEvent>() {
+                            @Override
+                            public void handle(ActionEvent event) {
+                                String n = name.getText();
+                                container.getChildren().remove(h);
+                                task.setDescription(n);
+                            }
+                        });
                     }
                 });
                 break;
